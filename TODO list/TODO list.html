@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>待办事项清单</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📋 待办事项清单</h1>
+    <p>保持高效，完成每一天</p>
+  </header>
+
+  <div class="glass-box">
+    <form id="add-form" class="input-area">
+  <input id="todo-input" type="text" placeholder="输入任务..." required />
+  <input id="todo-date" type="date" required />
+  <button type="submit" class="add-btn">➕ 添加任务</button>
+</form>
+  </div>
+
+  <div class="glass-box search-area">
+    <input id="search-input" type="text" placeholder="🔍 搜索任务..." />
+    <div class="filter-buttons">
+  <button id="searchTodayBtn"    type="button">今天</button>
+  <button id="searchTomorrowBtn" type="button">明天</button>
+  <button id="searchWeekBtn"     type="button">本周</button>
+  <button id="searchMonthBtn"    type="button">本月</button>
+  <button id="pastBtn" data-range="past" type="button">过去的任务</button>
+</div>
+  </div>
+
+  <div class="glass-box empty-state">
+<div class="glass-box todo-card">
+  <ul id="todo-list"></ul>
+</div>
+  </div>
+  
+</body>
+<script src="app.js"></script>
+</html>

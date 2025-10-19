@@ -1,0 +1,204 @@
+/* ========== 背景渐变动画 ========== */
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Helvetica Neue", sans-serif;
+  background: linear-gradient(120deg, #ff80ff, #8093ff, #ffc0cb, #ffb347);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========== 卡片样式（玻璃质感） ========== */
+.glass-box {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 30px;
+  margin: 20px 0;
+  width: 80%;
+  max-width: 800px;
+}
+
+/* ========== 标题区域 ========== */
+header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+/* ========== 输入区域 ========== */
+.input-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.input-area input, .input-area button {
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.input-area input {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* 添加按钮 */
+.add-btn {
+  background: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(6px);
+}
+.add-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* ========== 搜索区域 ========== */
+.search-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ========== 按钮区 ========== */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.filter-buttons button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.filter-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* 过去任务按钮（渐变紫色） */
+.filter-buttons .past {
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+.filter-buttons .past:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+}
+
+/* ========== 空任务提示 ========== */
+.empty-state {
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  font-size: 1.2rem;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+/* 让列表和空提示同在一块玻璃里，更统一 */
+.todo-card {
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+}
+
+/* 每条任务行 */
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+/* 最后一行去掉底边框 */
+#todo-list li:last-child { border-bottom: none; }
+
+/* 任务文字 */
+#todo-list li .value {
+  font-size: 1.05rem;
+  color: #222;
+}
+/* 已完成状态 */
+#todo-list li.completed .value {
+  text-decoration: line-through;
+  opacity: .55;
+}
+/* 完成/删除按钮 */
+#todo-list li button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 500;
+}
+
+#todo-list li .complete-btn {
+  background: rgba(153, 255, 153, 0.4);
+}
+#todo-list li .complete-btn:hover {
+  background: rgba(153, 255, 153, 0.7);
+}
+
+#todo-list li .delete-btn {
+  background: rgba(255, 153, 153, 0.4);
+  margin-left: 10px;
+}
+#todo-list li .delete-btn:hover {
+  background: rgba(255, 153, 153, 0.7);
+}
